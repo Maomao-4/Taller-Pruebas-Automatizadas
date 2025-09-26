@@ -80,6 +80,7 @@ describe("TodoService", () => {
   describe("getCompletedTodos", () => {
     it("should return only completed todos", async () => {
       const todo1 = await service.createTodo({ title: "Todo 1" })
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const todo2 = await service.createTodo({ title: "Todo 2" })
 
       await service.updateTodo(todo1.id, { completed: true })

@@ -3,7 +3,7 @@ import pino from "pino";
 
 const logger = pino()
 
-export const errorHandler = (error: Error, req: Request, res: Response, next: NextFunction): void => {
+export const errorHandler = (error: Error, _req: Request, res: Response, _next: NextFunction): void => {
   logger.error("Unhandled error:", error);
 
   res.status(500).json({
@@ -12,7 +12,7 @@ export const errorHandler = (error: Error, req: Request, res: Response, next: Ne
   });
 };
 
-export const notFoundHandler = (req: Request, res: Response): void => {
+export const notFoundHandler = (_req: Request, res: Response): void => {
   res.status(404).json({
     success: false,
     error: "Route not found",

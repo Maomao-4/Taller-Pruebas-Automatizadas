@@ -1,73 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="64" failures="0" errors="0" time="4.077">
-  <testsuite name="src\__tests__\todo.service.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-08-25T05:50:12" time="2.556" tests="10">
-    <testcase classname="TodoService › createTodo" name="should create a new todo" time="0.009">
-    </testcase>
-    <testcase classname="TodoService › getAllTodos" name="should return all todos" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › getTodoById" name="should return todo by id" time="0.002">
-    </testcase>
-    <testcase classname="TodoService › getTodoById" name="should return null for non-existent id" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › updateTodo" name="should update existing todo" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › updateTodo" name="should return null for non-existent todo" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › deleteTodo" name="should delete existing todo" time="0">
-    </testcase>
-    <testcase classname="TodoService › deleteTodo" name="should return false for non-existent todo" time="0">
-    </testcase>
-    <testcase classname="TodoService › getCompletedTodos" name="should return only completed todos" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › getPendingTodos" name="should return only pending todos" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="src\_tests_\todo.respository.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-08-25T05:50:12" time="2.613" tests="10">
-    <testcase classname="InMemoryTodoRepository › create" name="should create a new todo" time="0.011">
-    </testcase>
-    <testcase classname="InMemoryTodoRepository › create" name="should create todo without description" time="0.001">
-    </testcase>
-    <testcase classname="InMemoryTodoRepository › findAll" name="should return empty array when no todos exist" time="0.001">
-    </testcase>
-    <testcase classname="InMemoryTodoRepository › findAll" name="should return all todos" time="0.001">
-    </testcase>
-    <testcase classname="InMemoryTodoRepository › findById" name="should return todo by id" time="0">
-    </testcase>
-    <testcase classname="InMemoryTodoRepository › findById" name="should return null for non-existent id" time="0">
-    </testcase>
-    <testcase classname="InMemoryTodoRepository › update" name="should update existing todo" time="0.001">
-    </testcase>
-    <testcase classname="InMemoryTodoRepository › update" name="should return null for non-existent todo" time="0.001">
-    </testcase>
-    <testcase classname="InMemoryTodoRepository › delete" name="should delete existing todo" time="0.001">
-    </testcase>
-    <testcase classname="InMemoryTodoRepository › delete" name="should return false for non-existent todo" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="src\_tests_\todo.service.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-08-25T05:50:12" time="2.69" tests="10">
-    <testcase classname="TodoService › createTodo" name="should create a new todo" time="0.009">
-    </testcase>
-    <testcase classname="TodoService › getAllTodos" name="should return all todos" time="0">
-    </testcase>
-    <testcase classname="TodoService › getTodoById" name="should return todo by id" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › getTodoById" name="should return null for non-existent id" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › updateTodo" name="should update existing todo" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › updateTodo" name="should return null for non-existent todo" time="0">
-    </testcase>
-    <testcase classname="TodoService › deleteTodo" name="should delete existing todo" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › deleteTodo" name="should return false for non-existent todo" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › getCompletedTodos" name="should return only completed todos" time="0.001">
-    </testcase>
-    <testcase classname="TodoService › getPendingTodos" name="should return only pending todos" time="0.002">
-    </testcase>
-  </testsuite>
-  <testsuite name="src\__tests__\todo.repository.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-08-25T05:50:12" time="2.692" tests="10">
-    <testcase classname="InMemoryTodoRepository › create" name="should create a new todo" time="0.015">
+<testsuites name="jest tests" tests="40" failures="0" errors="0" time="13.258">
+  <testsuite name="src\__tests__\todo.repository.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-09-26T02:55:02" time="6.645" tests="10">
+    <testcase classname="InMemoryTodoRepository › create" name="should create a new todo" time="0.016">
     </testcase>
     <testcase classname="InMemoryTodoRepository › create" name="should create todo without description" time="0.001">
     </testcase>
@@ -77,65 +11,83 @@
     </testcase>
     <testcase classname="InMemoryTodoRepository › findById" name="should return todo by id" time="0.001">
     </testcase>
-    <testcase classname="InMemoryTodoRepository › findById" name="should return null for non-existent id" time="0">
+    <testcase classname="InMemoryTodoRepository › findById" name="should return null for non-existent id" time="0.001">
     </testcase>
-    <testcase classname="InMemoryTodoRepository › update" name="should update existing todo" time="0.003">
+    <testcase classname="InMemoryTodoRepository › update" name="should update existing todo" time="0.001">
     </testcase>
-    <testcase classname="InMemoryTodoRepository › update" name="should return null for non-existent todo" time="0.001">
+    <testcase classname="InMemoryTodoRepository › update" name="should return null for non-existent todo" time="0">
     </testcase>
     <testcase classname="InMemoryTodoRepository › delete" name="should delete existing todo" time="0.001">
     </testcase>
-    <testcase classname="InMemoryTodoRepository › delete" name="should return false for non-existent todo" time="0">
+    <testcase classname="InMemoryTodoRepository › delete" name="should return false for non-existent todo" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="src\__tests__\todo.api.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-08-25T05:50:12" time="3.225" tests="12">
+  <testsuite name="src\__tests__\todo.service.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-09-26T02:55:02" time="6.654" tests="10">
+    <testcase classname="TodoService › createTodo" name="should create a new todo" time="0.009">
+    </testcase>
+    <testcase classname="TodoService › getAllTodos" name="should return all todos" time="0">
+    </testcase>
+    <testcase classname="TodoService › getTodoById" name="should return todo by id" time="0.001">
+    </testcase>
+    <testcase classname="TodoService › getTodoById" name="should return null for non-existent id" time="0.001">
+    </testcase>
+    <testcase classname="TodoService › updateTodo" name="should update existing todo" time="0">
+    </testcase>
+    <testcase classname="TodoService › updateTodo" name="should return null for non-existent todo" time="0.001">
+    </testcase>
+    <testcase classname="TodoService › deleteTodo" name="should delete existing todo" time="0">
+    </testcase>
+    <testcase classname="TodoService › deleteTodo" name="should return false for non-existent todo" time="0.001">
+    </testcase>
+    <testcase classname="TodoService › getCompletedTodos" name="should return only completed todos" time="0">
+    </testcase>
+    <testcase classname="TodoService › getPendingTodos" name="should return only pending todos" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="src\__tests__\error.middleware.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-09-26T02:55:02" time="7.644" tests="2">
+    <testcase classname="error middleware" name="errorHandler responde 500 con shape esperado" time="0.01">
+    </testcase>
+    <testcase classname="error middleware" name="notFoundHandler responde 404 con shape esperado" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="src\__tests__\todo.controller.errors.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-09-26T02:55:02" time="9.878" tests="4">
+    <testcase classname="Todo controller - errores inesperados (→ 500)" name="GET /api/todos → 500 si el service.getAllTodos lanza" time="0.038">
+    </testcase>
+    <testcase classname="Todo controller - errores inesperados (→ 500)" name="POST /api/todos → 500 si el service.createTodo lanza (no Zod)" time="0.175">
+    </testcase>
+    <testcase classname="Todo controller - errores inesperados (→ 500)" name="PUT /api/todos/:id → 500 si el service.updateTodo lanza (no Zod)" time="0.007">
+    </testcase>
+    <testcase classname="Todo controller - errores inesperados (→ 500)" name="DELETE /api/todos/:id → 500 si el service.deleteTodo lanza" time="0.005">
+    </testcase>
+  </testsuite>
+  <testsuite name="src\__tests__\todo.controller.validation.ts" errors="0" failures="0" skipped="0" timestamp="2025-09-26T02:55:02" time="9.875" tests="2">
+    <testcase classname="Todo controller - validaciones (Zod → 400)" name="POST /api/todos sin title → 400" time="0.229">
+    </testcase>
+    <testcase classname="Todo controller - validaciones (Zod → 400)" name="PUT /api/todos/:id con payload inválido → 400" time="0.006">
+    </testcase>
+  </testsuite>
+  <testsuite name="src\__tests__\todo.api.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-09-26T02:55:02" time="9.96" tests="12">
     <testcase classname="Todo API › GET /health" name="should return health status" time="0.048">
     </testcase>
-    <testcase classname="Todo API › POST /api/todos" name="should create a new todo" time="0.02">
+    <testcase classname="Todo API › POST /api/todos" name="should create a new todo" time="0.156">
     </testcase>
-    <testcase classname="Todo API › POST /api/todos" name="should return validation error for invalid data" time="0.007">
+    <testcase classname="Todo API › POST /api/todos" name="should return validation error for invalid data" time="0.008">
     </testcase>
-    <testcase classname="Todo API › GET /api/todos" name="should return all todos" time="0.017">
-    </testcase>
-    <testcase classname="Todo API › GET /api/todos/:id" name="should return todo by id" time="0.011">
-    </testcase>
-    <testcase classname="Todo API › GET /api/todos/:id" name="should return 404 for non-existent todo" time="0.005">
-    </testcase>
-    <testcase classname="Todo API › PUT /api/todos/:id" name="should update existing todo" time="0.009">
-    </testcase>
-    <testcase classname="Todo API › PUT /api/todos/:id" name="should return 404 for non-existent todo" time="0.005">
-    </testcase>
-    <testcase classname="Todo API › DELETE /api/todos/:id" name="should delete existing todo" time="0.009">
-    </testcase>
-    <testcase classname="Todo API › DELETE /api/todos/:id" name="should return 404 for non-existent todo" time="0.004">
-    </testcase>
-    <testcase classname="Todo API › GET /api/todos/completed" name="should return only completed todos" time="0.014">
-    </testcase>
-    <testcase classname="Todo API › GET /api/todos/pending" name="should return only pending todos" time="0.012">
-    </testcase>
-  </testsuite>
-  <testsuite name="src\_tests_\todo.api.test.ts" errors="0" failures="0" skipped="0" timestamp="2025-08-25T05:50:12" time="3.225" tests="12">
-    <testcase classname="Todo API › GET /health" name="should return health status" time="0.049">
-    </testcase>
-    <testcase classname="Todo API › POST /api/todos" name="should create a new todo" time="0.021">
-    </testcase>
-    <testcase classname="Todo API › POST /api/todos" name="should return validation error for invalid data" time="0.007">
-    </testcase>
-    <testcase classname="Todo API › GET /api/todos" name="should return all todos" time="0.015">
+    <testcase classname="Todo API › GET /api/todos" name="should return all todos" time="0.013">
     </testcase>
     <testcase classname="Todo API › GET /api/todos/:id" name="should return todo by id" time="0.009">
     </testcase>
-    <testcase classname="Todo API › GET /api/todos/:id" name="should return 404 for non-existent todo" time="0.007">
+    <testcase classname="Todo API › GET /api/todos/:id" name="should return 404 for non-existent todo" time="0.006">
     </testcase>
-    <testcase classname="Todo API › PUT /api/todos/:id" name="should update existing todo" time="0.008">
+    <testcase classname="Todo API › PUT /api/todos/:id" name="should update existing todo" time="0.009">
     </testcase>
-    <testcase classname="Todo API › PUT /api/todos/:id" name="should return 404 for non-existent todo" time="0.006">
+    <testcase classname="Todo API › PUT /api/todos/:id" name="should return 404 for non-existent todo" time="0.007">
     </testcase>
     <testcase classname="Todo API › DELETE /api/todos/:id" name="should delete existing todo" time="0.01">
     </testcase>
-    <testcase classname="Todo API › DELETE /api/todos/:id" name="should return 404 for non-existent todo" time="0.005">
+    <testcase classname="Todo API › DELETE /api/todos/:id" name="should return 404 for non-existent todo" time="0.009">
     </testcase>
-    <testcase classname="Todo API › GET /api/todos/completed" name="should return only completed todos" time="0.013">
+    <testcase classname="Todo API › GET /api/todos/completed" name="should return only completed todos" time="0.014">
     </testcase>
     <testcase classname="Todo API › GET /api/todos/pending" name="should return only pending todos" time="0.013">
     </testcase>

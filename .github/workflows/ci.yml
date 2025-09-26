@@ -1,0 +1,156 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  # Carpeta local donde guardaremos artefactos cuando corramos con act
+  ARTIFACTS_DIR: .artifacts
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Unit tests with coverage (fail if < 90%)
+        run: npm run test:ci
+
+      # 👉 Fallback local solo cuando corremos con act
+      - name: Save coverage locally (act)
+        if: env.ACT == 'true'
+        run: |
+          mkdir -p "${{ env.ARTIFACTS_DIR }}"
+          [ -d coverage ] && cp -r coverage "${{ env.ARTIFACTS_DIR }}/" || true
+          [ -d reports ] && cp -r reports "${{ env.ARTIFACTS_DIR }}/" || true
+
+      # 👉 Solo en GitHub Actions reales
+      - uses: actions/upload-artifact@v4
+        if: env.ACT != 'true'
+        with:
+          name: coverage-and-test-reports
+          if-no-files-found: ignore
+          path: |
+            coverage/**
+            reports/**
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    if: needs.test.result == 'success'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: tar -czf app-dist.tgz dist package.json package-lock.json
+
+      # 👉 Fallback local solo con act
+      - name: Save build artifact locally (act)
+        if: env.ACT == 'true'
+        run: |
+          mkdir -p "${{ env.ARTIFACTS_DIR }}"
+          cp app-dist.tgz "${{ env.ARTIFACTS_DIR }}/app-dist.tgz"
+
+      # 👉 Solo en GitHub Actions reales
+      - uses: actions/upload-artifact@v4
+        if: env.ACT != 'true'
+        with:
+          name: app-dist
+          path: app-dist.tgz
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: [build, test]
+    if: needs.test.result == 'success' && needs.build.result == 'success'
+    env:
+      PUBLISH: 'false'
+      DOCKER_USERNAME: ''
+      DOCKER_PASSWORD: ''
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build image (load into local daemon for tests)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          load: true
+          tags: |
+            ${{ github.repository }}:${{ github.sha }}
+            ${{ github.repository }}:ci-${{ github.run_number }}
+
+      - name: Cleanup old container (act/dev)
+        run: docker rm -f todoapp 2>/dev/null || true
+
+      - name: Run image & health check
+        run: |
+          set -euo pipefail
+          docker run -d --rm -p 3000:3000 --name todoapp ${{ github.repository }}:${{ github.sha }}
+
+          for i in {1..30}; do
+            sleep 2
+            if curl -sf http://localhost:3000/health >/dev/null; then
+              echo "App is healthy ✅"
+              docker stop todoapp >/dev/null
+              exit 0
+            fi
+          done
+
+          echo "App failed health check ❌"
+          docker logs todoapp || true
+          docker stop todoapp || true
+          exit 1
+
+      # Publicación opcional
+      - name: Docker Hub login (optional)
+        if: env.PUBLISH == 'true'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ env.DOCKER_USERNAME }}
+          password: ${{ env.DOCKER_PASSWORD }}
+
+      - name: Push image (optional)
+        if: env.PUBLISH == 'true'
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ${{ env.DOCKER_USERNAME }}/todoapp:${{ github.sha }}
+            ${{ env.DOCKER_USERNAME }}/todoapp:latest
