@@ -1,6 +1,6 @@
 # Integrantes
-- **Felipe May Salguedo
-- **Yanisca Herrera Franco
+- **Felipe May Salguedo**
+- **Yanisca Herrera Franco**
 
 # ExpressJS Todo API
 
