@@ -1,0 +1,38 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "roots": ["<rootDir>/src"],
+  "testMatch": ["**/__tests__/**/*.ts", "**/?(*.)+(spec|test).ts"],
+  "transform": {
+    "^.+\\.ts$": "ts-jest"
+  },
+  "collectCoverageFrom": ["src/**/*.ts", "!src/**/*.d.ts", "!src/index.ts"],
+  "coverageDirectory": "coverage",
+  "coverageReporters": ["text", "lcov", "html", "json"],
+  "reporters": [
+    "default",
+    [
+      "jest-junit",
+      {
+        "outputDirectory": "reports",
+        "outputName": "junit.xml",
+        "ancestorSeparator": " › ",
+        "uniqueOutputName": "false",
+        "suiteNameTemplate": "{filepath}",
+        "classNameTemplate": "{classname}",
+        "titleTemplate": "{title}"
+      }
+    ],
+    [
+      "jest-html-reporters",
+      {
+        "publicPath": "reports",
+        "filename": "test-report.html",
+        "expand": true,
+        "hideIcon": false,
+        "pageTitle": "Todo API Test Report"
+      }
+    ]
+  ],
+  "testResultsProcessor": "jest-sonar-reporter"
+}

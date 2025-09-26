@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\tomoy\OneDrive\Desktop\U\jose mamado\Taller_test_unitarios\src\__tests__\todo.service.test.ts">
+    <testCase name="TodoService createTodo should create a new todo" duration="9"/>
+    <testCase name="TodoService getAllTodos should return all todos" duration="1"/>
+    <testCase name="TodoService getTodoById should return todo by id" duration="2"/>
+    <testCase name="TodoService getTodoById should return null for non-existent id" duration="1"/>
+    <testCase name="TodoService updateTodo should update existing todo" duration="1"/>
+    <testCase name="TodoService updateTodo should return null for non-existent todo" duration="1"/>
+    <testCase name="TodoService deleteTodo should delete existing todo" duration="0"/>
+    <testCase name="TodoService deleteTodo should return false for non-existent todo" duration="0"/>
+    <testCase name="TodoService getCompletedTodos should return only completed todos" duration="1"/>
+    <testCase name="TodoService getPendingTodos should return only pending todos" duration="1"/>
+  </file>
+  <file path="C:\Users\tomoy\OneDrive\Desktop\U\jose mamado\Taller_test_unitarios\src\_tests_\todo.respository.test.ts">
+    <testCase name="InMemoryTodoRepository create should create a new todo" duration="11"/>
+    <testCase name="InMemoryTodoRepository create should create todo without description" duration="1"/>
+    <testCase name="InMemoryTodoRepository findAll should return empty array when no todos exist" duration="1"/>
+    <testCase name="InMemoryTodoRepository findAll should return all todos" duration="1"/>
+    <testCase name="InMemoryTodoRepository findById should return todo by id" duration="0"/>
+    <testCase name="InMemoryTodoRepository findById should return null for non-existent id" duration="0"/>
+    <testCase name="InMemoryTodoRepository update should update existing todo" duration="1"/>
+    <testCase name="InMemoryTodoRepository update should return null for non-existent todo" duration="1"/>
+    <testCase name="InMemoryTodoRepository delete should delete existing todo" duration="1"/>
+    <testCase name="InMemoryTodoRepository delete should return false for non-existent todo" duration="0"/>
+  </file>
+  <file path="C:\Users\tomoy\OneDrive\Desktop\U\jose mamado\Taller_test_unitarios\src\_tests_\todo.service.test.ts">
+    <testCase name="TodoService createTodo should create a new todo" duration="9"/>
+    <testCase name="TodoService getAllTodos should return all todos" duration="0"/>
+    <testCase name="TodoService getTodoById should return todo by id" duration="1"/>
+    <testCase name="TodoService getTodoById should return null for non-existent id" duration="1"/>
+    <testCase name="TodoService updateTodo should update existing todo" duration="1"/>
+    <testCase name="TodoService updateTodo should return null for non-existent todo" duration="0"/>
+    <testCase name="TodoService deleteTodo should delete existing todo" duration="1"/>
+    <testCase name="TodoService deleteTodo should return false for non-existent todo" duration="1"/>
+    <testCase name="TodoService getCompletedTodos should return only completed todos" duration="1"/>
+    <testCase name="TodoService getPendingTodos should return only pending todos" duration="2"/>
+  </file>
+  <file path="C:\Users\tomoy\OneDrive\Desktop\U\jose mamado\Taller_test_unitarios\src\__tests__\todo.repository.test.ts">
+    <testCase name="InMemoryTodoRepository create should create a new todo" duration="15"/>
+    <testCase name="InMemoryTodoRepository create should create todo without description" duration="1"/>
+    <testCase name="InMemoryTodoRepository findAll should return empty array when no todos exist" duration="1"/>
+    <testCase name="InMemoryTodoRepository findAll should return all todos" duration="0"/>
+    <testCase name="InMemoryTodoRepository findById should return todo by id" duration="1"/>
+    <testCase name="InMemoryTodoRepository findById should return null for non-existent id" duration="0"/>
+    <testCase name="InMemoryTodoRepository update should update existing todo" duration="3"/>
+    <testCase name="InMemoryTodoRepository update should return null for non-existent todo" duration="1"/>
+    <testCase name="InMemoryTodoRepository delete should delete existing todo" duration="1"/>
+    <testCase name="InMemoryTodoRepository delete should return false for non-existent todo" duration="0"/>
+  </file>
+  <file path="C:\Users\tomoy\OneDrive\Desktop\U\jose mamado\Taller_test_unitarios\src\__tests__\todo.api.test.ts">
+    <testCase name="Todo API GET /health should return health status" duration="48"/>
+    <testCase name="Todo API POST /api/todos should create a new todo" duration="20"/>
+    <testCase name="Todo API POST /api/todos should return validation error for invalid data" duration="7"/>
+    <testCase name="Todo API GET /api/todos should return all todos" duration="17"/>
+    <testCase name="Todo API GET /api/todos/:id should return todo by id" duration="11"/>
+    <testCase name="Todo API GET /api/todos/:id should return 404 for non-existent todo" duration="5"/>
+    <testCase name="Todo API PUT /api/todos/:id should update existing todo" duration="9"/>
+    <testCase name="Todo API PUT /api/todos/:id should return 404 for non-existent todo" duration="5"/>
+    <testCase name="Todo API DELETE /api/todos/:id should delete existing todo" duration="9"/>
+    <testCase name="Todo API DELETE /api/todos/:id should return 404 for non-existent todo" duration="4"/>
+    <testCase name="Todo API GET /api/todos/completed should return only completed todos" duration="14"/>
+    <testCase name="Todo API GET /api/todos/pending should return only pending todos" duration="12"/>
+  </file>
+  <file path="C:\Users\tomoy\OneDrive\Desktop\U\jose mamado\Taller_test_unitarios\src\_tests_\todo.api.test.ts">
+    <testCase name="Todo API GET /health should return health status" duration="49"/>
+    <testCase name="Todo API POST /api/todos should create a new todo" duration="21"/>
+    <testCase name="Todo API POST /api/todos should return validation error for invalid data" duration="7"/>
+    <testCase name="Todo API GET /api/todos should return all todos" duration="15"/>
+    <testCase name="Todo API GET /api/todos/:id should return todo by id" duration="9"/>
+    <testCase name="Todo API GET /api/todos/:id should return 404 for non-existent todo" duration="7"/>
+    <testCase name="Todo API PUT /api/todos/:id should update existing todo" duration="8"/>
+    <testCase name="Todo API PUT /api/todos/:id should return 404 for non-existent todo" duration="6"/>
+    <testCase name="Todo API DELETE /api/todos/:id should delete existing todo" duration="10"/>
+    <testCase name="Todo API DELETE /api/todos/:id should return 404 for non-existent todo" duration="5"/>
+    <testCase name="Todo API GET /api/todos/completed should return only completed todos" duration="13"/>
+    <testCase name="Todo API GET /api/todos/pending should return only pending todos" duration="13"/>
+  </file>
+</testExecutions>
