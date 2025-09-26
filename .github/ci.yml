@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run test:report
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: |
+            coverage/**
+            reports/**
+            test-report.xml
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    if: needs.test.result == 'success'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - run: tar -czf app-dist.tgz dist package.json package-lock.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: app-dist
+          path: app-dist.tgz
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: [build, test]
+    if: needs.test.result == 'success' && needs.build.result == 'success'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t todoapp:${{ github.sha }} .
+      - name: Run image
+        run: |
+          docker run -d -p 3000:3000 --name todoapp todoapp:${{ github.sha }}
+          for i in {1..10}; do
+            sleep 2
+            if curl -sf http://localhost:3000/health; then exit 0; fi
+          done
+          exit 1
