@@ -1,3 +1,7 @@
+# Integrantes
+- **Felipe May Salguedo
+- **Yanisca Herrera Franco
+
 # ExpressJS Todo API
 
 Una API REST completa para gestión de tareas (todos) construida con ExpressJS, TypeScript, y un stack moderno de desarrollo.
